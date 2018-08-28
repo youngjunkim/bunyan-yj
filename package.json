@@ -1,6 +1,6 @@
 {
   "name": "bunyan-yj",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "a JSON logging library for node.js services",
   "author": "John Kim",
   "main": "./lib/bunyan.js",
@@ -23,7 +23,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "exeunt": "1.1.0"
+    "exeunt": "1.1.0",
+    "dtrace-provider": "~0.8",
+    "mv": "~2",
+    "safe-json-stringify": "~1",
+    "moment": "^2.10.6"
   },
   "// dtrace-provider": "required for dtrace features",
   "// mv": "required for RotatingFileStream",
@@ -43,5 +47,15 @@
   },
   "scripts": {
     "test": "make test"
+  },
+  "bugs": {
+    "url": "https://github.com/trentm/node-bunyan/issues"
+  },
+  "homepage": "https://github.com/trentm/node-bunyan#readme",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
   }
 }
