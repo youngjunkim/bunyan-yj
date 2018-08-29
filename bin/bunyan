@@ -1076,22 +1076,22 @@ function emitRecord(rec, line, opts, stylize) {
         details = stylize(
             (details.length ? details.join('\n    --\n') + '\n' : ''), 'none');
         if (!short)
-            emit(format('%s %s: %s%s %s%s\n%s',
+            emit(format('%s %s: %s%s %s\n%s',
                 time,
                 level,
                 // nameStr,
                 // hostname || '<no-hostname>',
                 src,
                 onelineMsg,
-                extras,
+                // extras,
                 details));
         else
-            emit(format('%s %s %s%s\n%s',
+            emit(format('%s %s %s\n%s',
                 time,
                 level,
                 // nameStr,
                 onelineMsg,
-                extras,
+                // extras,
                 details));
         break;
 
