@@ -3,22 +3,38 @@
 var http = require('http');
 var bunyan = require('../lib/bunyan');
 
+// var log = bunyan.createLogger({
+//     name: 'myserver',
+//     serializers: {
+//         req: bunyan.stdSerializers.req,
+//         res: bunyan.stdSerializers.res
+//     }
+// });
+
 var log = bunyan.createLogger({
-    name: 'myserver',
-    serializers: {
-        req: bunyan.stdSerializers.req,
-        res: bunyan.stdSerializers.res
-    }
+    name: 'amon',
+    streams: [
+        {
+            level: 'info',
+            stream: process.stdout,
+        },
+        {
+            level: 'info',
+            path: 'multi.log'
+        }
+    ]
 });
 
+
 var server = http.createServer(function (req, res) {
-    log.info({req: req}, 'start request');  // <-- this is the guy we're testing
+    log.info('nanana');
+    // log.info({req: req}, 'start request');  // <-- this is the guy we're testing
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Hello World\n');
-    log.info({res: res}, 'done response');  // <-- this is the guy we're testing
+    // log.info({res: res}, 'done response');  // <-- this is the guy we're testing
 });
 server.listen(1337, '127.0.0.1', function () {
-    log.info('server listening');
+    // log.info('server listening');
     var options = {
         port: 1337,
         hostname: '127.0.0.1',

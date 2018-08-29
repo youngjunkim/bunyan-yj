@@ -7,7 +7,7 @@ log = bunyan.createLogger({
             stream: process.stdout,
         },
         {
-            level: 'error',
+            level: 'info',
             path: 'multi.log'
         }
     ]

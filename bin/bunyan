@@ -703,7 +703,7 @@ function isValidRecord(rec) {
             rec.time == null ||
             rec.msg == null) {
         // Not valid Bunyan log.
-        return false;
+        return true;
     } else {
         return true;
     }
@@ -730,7 +730,7 @@ function handleLogLine(file, line, opts, stylize) {
     }
 
     currLine = line; // intentionally global
-
+    
     // Emit non-JSON lines immediately.
     var rec;
     if (!line) {
@@ -1076,11 +1076,11 @@ function emitRecord(rec, line, opts, stylize) {
         details = stylize(
             (details.length ? details.join('\n    --\n') + '\n' : ''), 'none');
         if (!short)
-            emit(format('%s %s: %s on %s%s:%s%s\n%s',
+            emit(format('%s %s: %s%s %s%s\n%s',
                 time,
                 level,
-                nameStr,
-                hostname || '<no-hostname>',
+                // nameStr,
+                // hostname || '<no-hostname>',
                 src,
                 onelineMsg,
                 extras,
@@ -1369,7 +1369,7 @@ function processFile(file, opts, stylize, callback) {
             stream.destroy();
             return;
         }
-
+        
         var chunk = decoder.write(data);
         if (!chunk.length) {
             return;

@@ -1,6 +1,6 @@
 {
   "name": "bunyan-yj",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "a JSON logging library for node.js services",
   "author": "John Kim",
   "main": "./lib/bunyan.js",
