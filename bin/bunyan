@@ -834,7 +834,7 @@ function emitRecord(rec, line, opts, stylize) {
             var colorFromLevel = {
                 10: 'white',    // TRACE
                 20: 'yellow',   // DEBUG
-                30: 'cyan',     // INFO
+                30: 'blue',     // INFO
                 40: 'magenta',  // WARN
                 50: 'red',      // ERROR
                 60: 'inverse',  // FATAL
@@ -1086,10 +1086,10 @@ function emitRecord(rec, line, opts, stylize) {
                 extras,
                 details));
         else
-            emit(format('%s %s %s:%s%s\n%s',
+            emit(format('%s %s %s%s%s\n%s',
                 time,
                 level,
-                nameStr,
+                // nameStr,
                 onelineMsg,
                 extras,
                 details));
