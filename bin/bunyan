@@ -1086,7 +1086,7 @@ function emitRecord(rec, line, opts, stylize) {
                 extras,
                 details));
         else
-            emit(format('%s %s %s%s%s\n%s',
+            emit(format('%s %s %s%s\n%s',
                 time,
                 level,
                 // nameStr,
